@@ -5,18 +5,16 @@ public class Hogwarts {
     private String surname;
     private int powerOfMagic;
     private int transgressionDistance;
-    private int sum;
+
 
     public Hogwarts(String name, String surname, int powerOfMagic, int transgressionDistance) {
         this.name = name;
         this.surname = surname;
         this.powerOfMagic = powerOfMagic;
         this.transgressionDistance = transgressionDistance;
-        sum = powerOfMagic + transgressionDistance;
-    }
 
-    public int getSum() {
-        return sum;
+        System.out.println("У студента " + name + " " + surname + " мощность магии " + powerOfMagic + " баллов, " + " трансгрессирование " + transgressionDistance + " баллов");
+
     }
 
     public String getName() {
@@ -57,12 +55,23 @@ public class Hogwarts {
 
     @Override
     public String toString() {
-        return "У " + name + " "
-                + surname + " Сила магии = "
-                + powerOfMagic + " баллов, расстояние трансгресии = "
-                + transgressionDistance + " баллов, общая сумма баллов по школе = "
-                + sum
-                ;
+        return "Hogwarts{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", powerOfMagic=" + powerOfMagic +
+                ", transgressionDistance=" + transgressionDistance +
+                '}';
+    }
+
+    public void compareHogwarts(Hogwarts other) {
+        System.out.println();
+        int result = (this.powerOfMagic + this.transgressionDistance) - (other.powerOfMagic + other.powerOfMagic);
+        if (result > 0) {
+            System.out.printf("У студента из школы магии и волшебства Хогвартс %s %s больше баллов, чем у %s %s", getName(), getSurname(), other.getName(), other.getSurname());
+        } else if (result < 0) {
+            System.out.printf("%s %s обладает меньшей мощностью магии, чем у %s %s", other.getName(), other.getSurname(), getName(), getSurname());
+        } else {
+            System.out.println("Студенты равны по силе магии");
+        }
     }
 }
-

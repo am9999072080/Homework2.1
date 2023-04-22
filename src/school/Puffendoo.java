@@ -4,14 +4,12 @@ public class Puffendoo extends Hogwarts {
     private int hardworking;
     private int faithful;
     private int honest;
-    private int sum2;
 
     public Puffendoo(String name, String surname, int powerOfMagic, int transgressionDistance, int hardworking, int faithful, int honest) {
         super(name, surname, powerOfMagic, transgressionDistance);
         this.hardworking = hardworking;
         this.faithful = faithful;
         this.honest = honest;
-        sum2 = hardworking + hardworking + faithful + honest;
     }
 
     public int getHardworking() {
@@ -38,19 +36,26 @@ public class Puffendoo extends Hogwarts {
         this.honest = honest;
     }
 
-    public int getSum2() {
-        return sum2;
-    }
-
     @Override
     public String toString() {
-        return "У "
-                + getName() + " "
-                + getSurname()
-                + " из факультета Пуффендуя трудолюбство = "
-                + hardworking +
-                " баллов, верность = " + faithful +
-                " баллов, честность =" + honest + " баллов" + " баллов, общая сумма баллов по факультету = " + sum2
-                ;
+        return "Puffendoo{" +
+                "hardworking=" + hardworking +
+                ", faithful=" + faithful +
+                ", honest=" + honest +
+                "} " + super.toString();
+    }
+
+    public void comparePuffendoo(Puffendoo other) {
+        System.out.println();
+        int result = (this.hardworking + this.faithful + this.honest) - (other.hardworking + other.faithful + other.honest);
+        if (result > 0) {
+            System.out.printf("У %s %s  из факультета Пуффендуя больше баллов(трудолюбство=%s баллов, верность= %s баллов, честность=%s баллов), чем у %s %s (трудолюбство=%s баллов, верность= %s баллов, честность=%s баллов)", getName(), getSurname(), getHardworking(), getFaithful(), getHonest(), other.getName(), other.getSurname(), other.getHardworking(), other.getFaithful(), other.getHonest());
+        } else if (result < 0) {
+            System.out.printf("У %s %s  из факультета Пуффендуя меньше баллов(трудолюбство=%s баллов, верность= %s баллов, честность=%s баллов), чем у %s %s (трудолюбство=%s баллов, верность= %s баллов, честность=%s баллов)", getName(), getSurname(), getHardworking(), getFaithful(), getHonest(), other.getName(), other.getSurname(), other.getHardworking(), other.getFaithful(), other.getHonest());
+        } else {
+            System.out.printf("У %s %s  из факультета Пуффендуя общая сумма баллов (трудолюбство=%s баллов, верность= %s баллов, честность=%s баллов), равно с %s %s (трудолюбство=%s баллов, верность= %s баллов, честность=%s баллов)", getName(), getSurname(), getHardworking(), getFaithful(), getHonest(), other.getName(), other.getSurname(), other.getHardworking(), other.getFaithful(), other.getHonest());
+        }
     }
 }
+
+

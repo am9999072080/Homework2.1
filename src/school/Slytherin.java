@@ -6,7 +6,6 @@ public class Slytherin extends Hogwarts {
     private int ambitiousness;
     private int resourcefulness;
     private int thirstForPower;
-    private int sum4;
 
     public Slytherin(String name, String surname, int powerOfMagic, int transgressionDistance, int cunning, int determination, int ambitiousness, int resourcefulness, int thirstForPower) {
         super(name, surname, powerOfMagic, transgressionDistance);
@@ -15,7 +14,6 @@ public class Slytherin extends Hogwarts {
         this.ambitiousness = ambitiousness;
         this.resourcefulness = resourcefulness;
         this.thirstForPower = thirstForPower;
-        sum4 = cunning + determination + ambitiousness + resourcefulness + thirstForPower;
     }
 
     public int getCunning() {
@@ -58,21 +56,26 @@ public class Slytherin extends Hogwarts {
         this.thirstForPower = thirstForPower;
     }
 
-    public int getSum4() {
-        return sum4;
-    }
-
     @Override
     public String toString() {
-        return "У "
-                + getName() + " "
-                + getSurname()
-                + " из факультета Слизерин хитрость = "
-                + cunning +
-                " баллов, " + determination +
-                " баллов, решительность = " + ambitiousness +
-                " баллов, амбициозность = " + resourcefulness +
-                " баллов, находчивость и жажда власти = " + thirstForPower + " баллов" + " баллов, общая сумма баллов по факультету = " + sum4
-                ;
+        return "Slytherin{" +
+                "cunning=" + cunning +
+                ", determination=" + determination +
+                ", ambitiousness=" + ambitiousness +
+                ", resourcefulness=" + resourcefulness +
+                ", thirstForPower=" + thirstForPower +
+                "} " + super.toString();
+    }
+
+    public void compareSlytherin(Slytherin other) {
+        System.out.println();
+        int result = (this.cunning + this.determination + this.ambitiousness + this.resourcefulness + this.thirstForPower) - (other.cunning + other.determination + other.ambitiousness + other.resourcefulness + other.thirstForPower);
+        if (result > 0) {
+            System.out.printf("У %s %s  из факультета Слизерин больше баллов, чем у %s %s ", getName(), getSurname(), other.getName(), other.getSurname());
+        } else if (result < 0) {
+            System.out.printf("У %s %s  из факультета Слизерин меньше баллов, чем у %s %s", getName(), getSurname(), other.getName(), other.getSurname());
+        } else {
+            System.out.printf("У %s %s и у %s %s одинаковое число баллов", getName(), getSurname(), other.getName(), other.getSurname());
+        }
     }
 }
