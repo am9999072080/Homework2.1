@@ -12,9 +12,6 @@ public class Hogwarts {
         this.surname = surname;
         this.powerOfMagic = powerOfMagic;
         this.transgressionDistance = transgressionDistance;
-
-        System.out.println("У студента " + name + " " + surname + " мощность магии " + powerOfMagic + " баллов, " + " трансгрессирование " + transgressionDistance + " баллов");
-
     }
 
     public String getName() {
@@ -64,7 +61,6 @@ public class Hogwarts {
     }
 
     public void compareHogwarts(Hogwarts other) {
-        System.out.println();
         int result = (this.powerOfMagic + this.transgressionDistance) - (other.powerOfMagic + other.powerOfMagic);
         if (result > 0) {
             System.out.printf("У студента из школы магии и волшебства Хогвартс %s %s больше баллов, чем у %s %s", getName(), getSurname(), other.getName(), other.getSurname());
